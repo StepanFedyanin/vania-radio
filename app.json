@@ -1,0 +1,68 @@
+{
+  "expo": {
+    "name": "«L» радио",
+    "slug": "radio-vania",
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 31,
+            "targetSdkVersion": 31,
+            "buildToolsVersion": "31.0.0"
+          },
+          "ios": {
+            "deploymentTarget": "13.0"
+          }
+        }
+      ]
+    ],
+    "splash": {
+      "image": "./assets/vania-splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#D2151C"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/3a076a26-e818-4c7f-a4ca-5b02d166657b"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kovex.lradioapp",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio",
+          "fetch"
+        ]
+      },
+      "buildNumber": "6",
+      "runtimeVersion": {
+        "policy": "sdkVersion"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#D2151C"
+      },
+      "package": "com.kovex.lradioapp",
+      "versionCode": 14,
+      "runtimeVersion": "1.0.2"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b0175a23-c77a-4446-926c-b46ed92e70ae"
+      }
+    },
+    "owner": "bb_fedyanin"
+  }
+}
