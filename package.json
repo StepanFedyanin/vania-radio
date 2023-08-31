@@ -1,5 +1,5 @@
 {
-  "name": "l-radio-app",
+  "name": "vania-radio-app",
   "version": "1.0.3",
   "scripts": {
     "start": "expo start --dev-client",
@@ -12,7 +12,6 @@
     "@react-navigation/native-stack": "^6.9.10",
     "axios": "^1.3.3",
     "expo": "~47.0.14",
-    "expo-app-loading": "~2.1.1",
     "expo-background-fetch": "~11.0.1",
     "expo-build-properties": "~0.4.1",
     "expo-dev-client": "~2.0.1",
@@ -26,8 +25,7 @@
     "native-base": "^3.4.25",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-native": "^0.70.8",
-    "react-native-background-timer": "^2.4.1",
+    "react-native": "0.70.8",
     "react-native-safe-area-context": "4.4.1",
     "react-native-screens": "~3.18.0",
     "react-native-svg": "13.4.0",
@@ -35,7 +33,8 @@
     "react-navigation": "^4.4.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.8"
+    "@babel/core": "^7.22.8",
+    "expo-cli": "^6.3.10"
   },
   "private": true
 }

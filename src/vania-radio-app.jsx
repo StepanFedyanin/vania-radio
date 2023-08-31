@@ -7,7 +7,7 @@ import Player from './screens/player.jsx';
 
 const Stack = createNativeStackNavigator();
 
-class LRadioApp extends React.Component {
+class VaniaRadioApp extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -23,4 +23,4 @@ class LRadioApp extends React.Component {
 	}
 }
 
-export default LRadioApp;
+export default VaniaRadioApp;

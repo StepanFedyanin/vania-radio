@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "«L» радио",
-    "slug": "radio-vania",
+    "name": "ВАНЯ",
+    "slug": "vania-radio-app",
     "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,9 +10,9 @@
         "expo-build-properties",
         {
           "android": {
-            "compileSdkVersion": 31,
-            "targetSdkVersion": 31,
-            "buildToolsVersion": "31.0.0"
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0"
           },
           "ios": {
             "deploymentTarget": "13.0"
@@ -34,7 +34,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.kovex.lradioapp",
+      "bundleIdentifier": "com.kovex.vaniaradioapp",
       "infoPlist": {
         "UIBackgroundModes": [
           "audio",
@@ -51,8 +51,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#D2151C"
       },
-      "package": "com.kovex.lradioapp",
-      "versionCode": 14,
+      "package": "com.kovex.vaniaradioapp",
+      "versionCode": 22,
       "runtimeVersion": "1.0.2"
     },
     "web": {
@@ -60,9 +60,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "b0175a23-c77a-4446-926c-b46ed92e70ae"
+        "projectId": "7249fa66-4b9b-45d7-b692-c2e6f8334d42"
       }
     },
-    "owner": "bb_fedyanin"
+    "owner": "bb_fedyanin3"
   }
 }

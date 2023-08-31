@@ -1,4 +1,4 @@
-package com.kovex.lradioapp;
+package com.kovex.vaniaradioapp;
 
 import android.os.Build;
 import android.os.Bundle;

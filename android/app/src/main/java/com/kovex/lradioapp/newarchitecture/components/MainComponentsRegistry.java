@@ -1,4 +1,4 @@
-package com.kovex.lradioapp.newarchitecture.components;
+package com.kovex.vaniaradioapp.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

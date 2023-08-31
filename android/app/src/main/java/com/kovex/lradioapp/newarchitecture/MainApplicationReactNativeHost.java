@@ -1,4 +1,4 @@
-package com.kovex.lradioapp.newarchitecture;
+package com.kovex.vaniaradioapp.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -20,9 +20,9 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.kovex.lradioapp.BuildConfig;
-import com.kovex.lradioapp.newarchitecture.components.MainComponentsRegistry;
-import com.kovex.lradioapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.kovex.vaniaradioapp.BuildConfig;
+import com.kovex.vaniaradioapp.newarchitecture.components.MainComponentsRegistry;
+import com.kovex.vaniaradioapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,18 +1,16 @@
 import React from 'react';
 import {AppState, StyleSheet} from 'react-native';
-import BackgroundTimer from 'react-native-background-timer';
 import {Text, Box, Button, Container, Image} from 'native-base';
 import {images} from '../res';
-// import TrackPlayer, {
-//     AppKilledPlaybackBehavior,
-//     Capability,
-//     useTrackPlayerEvents,
-//     usePlaybackState,
-//     TrackPlayerEvents,
-//     STATE_PLAYING,
-//     Event,
-// } from 'react-native-track-player';
-
+import TrackPlayer, {
+    AppKilledPlaybackBehavior,
+    Capability,
+    useTrackPlayerEvents,
+    usePlaybackState,
+    TrackPlayerEvents,
+    STATE_PLAYING,
+    Event,
+} from 'react-native-track-player';
 class Player extends React.Component {
     constructor(props) {
         super(props);
@@ -30,37 +28,41 @@ class Player extends React.Component {
     }
 
     async setupTrackPlayer() {
-        const {audio, playingArtist, playingTrack} = this.state;
+        const { audio, playingArtist, playingTrack } = this.state;
         const songs = [{
             id: 1,
             url: audio,
             artist: playingArtist,
             title: playingTrack,
+            artwork: require('../res/images/vania-logo.png')
         }];
 
-        // TrackPlayer.setupPlayer().then(async () => {
-        //     console.log('Player ready');
-        //     await TrackPlayer.addEventListener(Event.PlaybackState, (e) => {
-        //         console.log('Player state:', e.state === 'playing');
-        //         let isPlaying = e.state === 'playing';
-        //         this.setState({ isPlaying: isPlaying });
-        //     });
-        //     await TrackPlayer.reset();
-        //     await TrackPlayer.add(songs);
-        //     //TrackPlayer.play();
-        //     //this.setState({ isPlaying: true });
-        //
-        //     await TrackPlayer.updateOptions({
-        //         stopWithApp: false,
-        //         autoHandleInterruptions: true,
-        //         capabilities: [],
-        //         android: {
-        //             appKilledPlaybackBehavior: AppKilledPlaybackBehavior.StopPlaybackAndRemoveNotification,
-        //             alwaysPauseOnInterruption: true,
-        //         },
-        //         icon: 'ic_launcher_round',
-        //     });
-        // });
+        TrackPlayer.setupPlayer().then(async () => {
+            console.log('Player ready');
+            await TrackPlayer.addEventListener(Event.PlaybackState, (e) => {
+                console.log('Player state:', e.state === 'playing');
+                let isPlaying = e.state === 'playing';
+                this.setState({ isPlaying: isPlaying });
+            });
+            await TrackPlayer.reset();
+            await TrackPlayer.add(songs);
+            //TrackPlayer.play();
+            //this.setState({ isPlaying: true });
+
+            await TrackPlayer.updateOptions({
+                stopWithApp: false,
+                autoHandleInterruptions: true,
+                capabilities: [
+                    Capability.Play,
+                    Capability.Pause,
+                ],
+                android: {
+                    appKilledPlaybackBehavior: AppKilledPlaybackBehavior.StopPlaybackAndRemoveNotification,
+                    alwaysPauseOnInterruption: true,
+                },
+                icon: 'ic_launcher_round',
+            });
+        });
         /*
         TrackPlayer.addEventListener(Event.PlaybackMetadataReceived, (event) => {
             console.log(event)
@@ -73,7 +75,7 @@ class Player extends React.Component {
     }
 
     async getCurrentTrack() {
-        const {playingArtist, playingTrack} = this.state;
+        const { playingArtist, playingTrack } = this.state;
         try {
             const response = await fetch('https://air.unmixed.ru/status-json.xsl');
             const json = await response.json();
@@ -94,11 +96,11 @@ class Player extends React.Component {
                         playingArtist: trackTitle[0].trim() || '«L» - радио',
                         playingTrack: trackTitle[1].trim() || ''
                     });
-                    // TrackPlayer.updateMetadataForTrack(0, {
-                    //     artist: playingArtist,
-                    //     title: playingTrack,
-                    //     artwork: require('../res/images/notification-logo.png')
-                    // });
+                    TrackPlayer.updateMetadataForTrack(0, {
+                        artist: playingArtist,
+                        title: playingTrack,
+                        artwork: require('../res/images/vania-logo.png')
+                    });
 
                     console.log('AppState: ' + AppState.currentState);
                     /*
@@ -117,27 +119,21 @@ class Player extends React.Component {
     }
 
     handlePlayAudio = () => {
-        const {isPlaying} = this.state;
+        const { isPlaying } = this.state;
         console.log('handlePlayAudio', isPlaying);
         if (!isPlaying) {
-            // TrackPlayer.play();
-            this.setState({isPlaying: true});
+            TrackPlayer.play();
+            this.setState({ isPlaying: true });
         } else {
-            // TrackPlayer.pause();
-            this.setState({isPlaying: false});
+            TrackPlayer.pause();
+            this.setState({ isPlaying: false });
         }
     }
 
     componentDidMount() {
-        // this.setupTrackPlayer();
-        // BackgroundTimer.runBackgroundTimer(() => {
-        //     this.getCurrentTrack();
-        // }, 5000);
+        this.setupTrackPlayer();
     }
 
-    componentWillUnmount() {
-        // BackgroundTimer.stopBackgroundTimer();
-    }
 
     render() {
         const {audio, isPlaying, isBusy, playingArtist, playingTrack} = this.state;
@@ -154,25 +150,23 @@ class Player extends React.Component {
                         width="100%"
                     >
                         <Box
-                            width="100%"
-                            maxH="70%"
+                            width="270"
+                            maxH="223"
                             alignItems="center"
                             position="relative"
                         >
                             <Image
                                 key={`play-${images.logo}`}
                                 source={images.logo}
-                                maxH="223"
-                                maxW="270"
-                                height="64.5%"
-                                width="70%"
+                                height="100%"
+                                width="100%"
                                 alt=""
                             />
                         </Box>
                         <Button
                             variant="unstyled"
                             style={{
-                                marginTop: -50,
+                                marginTop: 60,
                             }}
                             onPress={() => this.handlePlayAudio()}
                         >
@@ -199,7 +193,7 @@ class Player extends React.Component {
                             fontWeight="600"
                             fontFamily="montserrat-semiBold"
                         >
-                            {isPlaying ? `${playingTrack ? playingTrack : 'Играет что-то'}` : `Поток на паузе`}
+                            {isPlaying ? `${playingTrack}` : `Поток на паузе`}
                         </Text>
                     </Box>
                 </>

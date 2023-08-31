@@ -1,7 +1,7 @@
-// import fonts from './fonts';
+import fonts from './fonts';
 import images from './images';
 
 export {
-    // fonts,
+    fonts,
     images
 }
